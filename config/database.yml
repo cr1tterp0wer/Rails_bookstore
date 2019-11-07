@@ -26,7 +26,7 @@ default: &default
 
 development:
   <<: *default
-adapter: postgresql
+  adapter: postgresql
   timeout: 5000
 
 test:

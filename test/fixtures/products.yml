@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :text
+#  image_url   :string
+#  price       :decimal(8, 2)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  image_url: ruby.jpg 
+  price: 9.99
+
+two:
+  title: MyString
+  description: MyText
+  image_url: ruby.jpg 
+  price: 9.99
+
+ruby:
+  title: Programming Ruby 1.9
+  description: 
+    Ruby is the fastest growing and most exciting dynamic language
+    out there. If you need to get working programs delivered fast,
+    you should add Ruby to your toolbox.
+  price: 49.60
+  image_url: ruby.jpg
+

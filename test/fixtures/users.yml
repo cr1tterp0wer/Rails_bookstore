@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string
+#  password_digest :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: Dave 
+  password_digest: <%= BCrypt::Password.create('secret') %>
+
+two:
+  username: Gary 
+  password_digest: <%= BCrypt::Password.create('secret') %>

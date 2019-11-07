@@ -4,3 +4,7 @@ tmp/*
 node_modules/*
 */node_modules/*
 node_modules/
+node_modules/*/.cache/*
+node_modules/*/.cache/
+
+.DS_STORE

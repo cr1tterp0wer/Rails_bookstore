@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_230436) do
+ActiveRecord::Schema.define(version: 2019_11_11_082741) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "checks", force: :cascade do |t|
+    t.string "routing_number"
+    t.string "account_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "credit_card_number"
+    t.string "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +53,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_230436) do
     t.integer "pay_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "payment_detail_id"
+    t.string "payment_detail_type"
+    t.index ["payment_detail_id", "payment_detail_type"], name: "index_orders_on_payment_detail_id_and_payment_detail_type"
   end
 
   create_table "products", force: :cascade do |t|
@@ -43,6 +63,12 @@ ActiveRecord::Schema.define(version: 2019_11_06_230436) do
     t.text "description"
     t.string "image_url"
     t.decimal "price", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purchase_orders", force: :cascade do |t|
+    t.string "po_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

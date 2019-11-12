@@ -28,7 +28,13 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+
+    params = order_params
+    detail_params =  pay_type_params.to_h
+    params[:payment_detail_attributes] = detail_params
+    params[:payment_detail_type] = order_params[:pay_type].delete(' ').classify
+
+    @order = Order.new( params );
     @order.add_line_items_from_cart(@cart)
 
     respond_to do |format|

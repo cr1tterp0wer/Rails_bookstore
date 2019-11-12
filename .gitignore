@@ -9,5 +9,10 @@ node_modules/*
 node_modules/
 node_modules/*/.cache/*
 node_modules/*/.cache/
+public/packs/js/*
+public/packs/js/
+*/.swp
+.swp
+
 
 .DS_STORE

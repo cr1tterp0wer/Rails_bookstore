@@ -1,3 +1,3 @@
 class CreditCard < ApplicationRecord
-  has_one :order, as: :paymen_detail 
+  has_one :order, as: :payment_detail, dependent: :destroy, inverse_of: :order
 end

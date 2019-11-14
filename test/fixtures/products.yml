@@ -2,7 +2,7 @@
 #
 # Table name: products
 #
-#  id          :integer          not null, primary key
+#  id          :bigint           not null, primary key
 #  title       :string
 #  description :text
 #  image_url   :string

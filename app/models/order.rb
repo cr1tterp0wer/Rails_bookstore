@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id                  :bigint           not null, primary key
+#  name                :string
+#  address             :text
+#  email               :string
+#  pay_type            :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  payment_detail_id   :bigint
+#  payment_detail_type :string
+#
+
 class Order < ApplicationRecord
 
   enum pay_type: {

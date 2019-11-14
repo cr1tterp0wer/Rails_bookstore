@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: checks
+#
+#  id             :bigint           not null, primary key
+#  routing_number :string
+#  account_number :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

@@ -55,6 +55,8 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
+      puts "********"
+      puts @order.payment_detail
       if @order.update(order_params)
         format.html { redirect_to order_url(@order), notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }

@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker', '~> 4.0'
-gem 'annotate'
+gem 'annotate', '~> 2.7.1'
 gem 'i18n-js'
 
 # Use ActiveStorage variant

@@ -25,7 +25,17 @@ class Order < ApplicationRecord
   validates :pay_type, inclusion: {in: pay_types} 
   has_many  :line_items, dependent: :destroy
   belongs_to :payment_detail, polymorphic: true
-  accepts_nested_attributes_for :payment_detail
+  accepts_nested_attributes_for :payment_detail, reject_if: :validate_atts_invalid
+
+  def validate_atts_invalid(params)
+    reject = false 
+    if pay_type == "Credit Card"
+      puts "******************************************************"
+      puts params 
+      reject = !CreditCard.luhn_validate( params[:credit_card_number] )
+    end
+    return reject
+  end
 
   def build_payment_detail(params)
     self.payment_detail = payment_detail_type.constantize.new(params)

@@ -12,6 +12,10 @@
 class CreditCard < ApplicationRecord
   validates :credit_card_number, :expiration_date, presence: true
   has_one :order, as: :payment_detail, dependent: :destroy, inverse_of: :order
+  
+  def self.date_validate(date)
+    !!( date =~ /^[0-9]{2}\/[0-9]{2}/)
+  end
 
   def self.luhn_validate(cc_number)
     cc_last    = cc_number[-1]

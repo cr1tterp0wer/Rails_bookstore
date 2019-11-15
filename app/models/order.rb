@@ -30,10 +30,10 @@ class Order < ApplicationRecord
   def validate_atts_invalid(params)
     reject = false 
     if pay_type == "Credit Card"
-      puts "******************************************************"
-      puts params 
       reject = !CreditCard.luhn_validate( params[:credit_card_number] )
+      reject = !CreditCard.date_validate( params[:expiration_date] )
     end
+
     return reject
   end
 

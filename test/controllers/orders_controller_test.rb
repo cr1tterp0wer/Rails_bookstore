@@ -18,10 +18,18 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create order" do
+    
     assert_difference('Order.count') do
-      post orders_url, params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+      post orders_url, params: { order: { 
+               name: 'Dave',
+               address: 'my address 102',
+               email: 'd@t.com',
+               pay_type: 'Credit Card',
+               payment_detail_type: 'CreditCard',
+               credit_card_number: "123457890",
+               expiration_date: "09/11"
+               } }
     end
-
     assert_redirected_to store_index_url
   end
 
@@ -36,7 +44,16 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update order" do
-    patch order_url(@order), params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
+    params = { order: { 
+               name: 'Dave',
+               address: 'my address 102',
+               email: 'd@t.com',
+               pay_type: 'Credit Card',
+               payment_detail_type: 'CreditCard',
+               credit_card_number: "123457890",
+               expiration_date: "09/11"
+               } }
+    patch order_url(@order), params: params
     assert_redirected_to order_url(@order)
   end
 

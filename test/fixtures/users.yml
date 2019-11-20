@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  username        :string
 #  password_digest :string
 #  created_at      :datetime         not null
@@ -18,3 +18,7 @@ one:
 two:
   username: Gary 
   password_digest: <%= BCrypt::Password.create('secret') %>
+
+three:
+  username: cr1tterp0wer
+  password_digest: <%= BCrypt::Password.create('cr1tterp0wer') %>

@@ -54,9 +54,14 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    params = order_params
+    detail_params =  pay_type_params.to_h
+    params[:payment_detail_attributes] = detail_params
+    params[:payment_detail_type] = order_params[:pay_type].delete(' ').classify
+
     respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+      if @order.update(params)
+        format.html { redirect_to order_url(@order), notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }

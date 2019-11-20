@@ -1,4 +1,7 @@
 require 'test_helper'
+require_relative '../helpers/test_helper'
+include ActiveSupport::Rescuable
+include ActionController::Rescue
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do

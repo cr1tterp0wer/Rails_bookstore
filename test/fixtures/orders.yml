@@ -2,13 +2,15 @@
 #
 # Table name: orders
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  address    :text
-#  email      :string
-#  pay_type   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                  :bigint           not null, primary key
+#  name                :string
+#  address             :text
+#  email               :string
+#  pay_type            :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  payment_detail_id   :bigint
+#  payment_detail_type :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
